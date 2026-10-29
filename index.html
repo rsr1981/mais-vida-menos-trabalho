@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#c90024">
+
+  <meta name="description"
+    content="Mais vida, menos trabalho! Mobilização popular por mais descanso e tempo para viver.">
+
+  <meta property="og:title" content="Mais vida, menos trabalho">
+  <meta property="og:description"
+    content="O tempo de viver importa. Compartilhe essa mobilização pelo fim da escala 6x1.">
+  <meta property="og:type" content="website">
+
+  <title>Mais vida, menos trabalho</title>
+
+  <style>
+    :root {
+      --red: #c90024;
+      --dark-red: #970019;
+      --white: #ffffff;
+      --light: #fff1f3;
+      --dark: #242124;
+      --gray: #686268;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .hero {
+      background: var(--red);
+      color: var(--white);
+      text-align: center;
+      padding: 24px 18px 48px;
+    }
+
+    .topline {
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .brand {
+      margin: 28px auto 8px;
+      max-width: 800px;
+      font-size: clamp(2.7rem, 10vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -2px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      max-width: 600px;
+      margin: 22px auto;
+      font-size: clamp(1rem, 3vw, 1.25rem);
+    }
+
+    .countdown-wrap {
+      max-width: 720px;
+      margin: 34px auto 0;
+      background: var(--white);
+      color: var(--dark);
+      border-radius: 18px;
+      padding: 24px 16px;
+      box-shadow: 0 10px 30px #65001233;
+    }
+
+    .countdown-title {
+      margin: 0 0 5px;
+      color: var(--red);
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .target-date {
+      margin: 0 0 22px;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .time-unit {
+      background: var(--light);
+      padding: 15px 3px;
+      border-radius: 10px;
+    }
+
+    .number {
+      display: block;
+      font-size: clamp(1.65rem, 7vw, 3rem);
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1.2;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .unit-label {
+      font-size: 0.68rem;
+      letter-spacing: 1px;
+      font-weight: bold;
+      color: var(--gray);
+    }
+
+    .status {
+      margin: 18px 0 0;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .content {
+      max-width: 800px;
+      margin: auto;
+      padding: 42px 22px;
+    }
+
+    h2 {
+      color: var(--red);
+      font-size: clamp(1.6rem, 5vw, 2.25rem);
+      line-height: 1.15;
+    }
+
+    .manifesto {
+      font-size: 1.1rem;
+    }
+
+    .manifesto strong {
+      color: var(--red);
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 26px 0;
+    }
+
+    .pillar {
+      border: 1px solid #f2cbd1;
+      border-radius: 12px;
+      padding: 16px;
+      background: #fffafb;
+    }
+
+    .pillar strong {
+      display: block;
+      color: var(--red);
+      margin-bottom: 4px;
+    }
+
+    .share-section {
+      background: var(--light);
+      text-align: center;
+      padding: 34px 20px;
+    }
+
+    .share-section h2 {
+      margin-top: 0;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 600px;
+      margin: 22px auto 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 9px;
+      padding: 14px 20px;
+      min-height: 48px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-red {
+      color: var(--white);
+      background: var(--red);
+    }
+
+    .btn-red:hover {
+      background: var(--dark-red);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--red);
+      border: 1px solid #efbdc6;
+    }
+
+    .social {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social a {
+      color: var(--red);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 28px 18px;
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+
+    footer strong {
+      color: var(--red);
+    }
+
+    .legal-note {
+      font-size: 0.82rem;
+      color: var(--gray);
+      margin-top: 24px;
+    }
+
+    @media (max-width: 430px) {
+      .hero {
+        padding-inline: 12px;
+      }
+
+      .countdown-wrap {
+        padding: 20px 9px;
+      }
+
+      .timer {
+        gap: 5px;
+      }
+
+      .time-unit {
+        padding: 13px 1px;
+      }
+
+      .unit-label {
+        font-size: 0.57rem;
+        letter-spacing: 0;
+      }
+
+      .pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="topline">Uma mobilização por quem trabalha</div>
+
+    <h1 class="brand">Mais vida,<br>menos trabalho.</h1>
+
+    <p class="subtitle">
+      Trabalhar para viver, não viver apenas para trabalhar.
+      Mais descanso, mais família e mais tempo para ser feliz.
+    </p>
+
+    <section class="countdown-wrap" aria-label="Contagem regressiva">
+      <h2 class="countdown-title" id="timer-heading">
+        CONTAGEM REGRESSIVA
+      </h2>
+
+      <p class="target-date" id="target-label">
+        Data de referência: 15 de dezembro de 2026
+      </p>
+
+      <div class="timer" id="timer" aria-labelledby="timer-heading">
+        <div class="time-unit">
+          <span class="number" id="days">--</span>
+          <span class="unit-label">DIAS</span>
+        </div>
+
+        <div class="time-unit">
+          <span class="number" id="hours">--</span>
+          <span class="unit-label">HORAS</span>
+        </div>
+
+        <div class="time-unit">
+          <span class="number" id="minutes">--</span>
+          <span class="unit-label">MINUTOS</span>
+        </div>
+
+        <div class="time-unit">
+          <span class="number" id="seconds">--</span>
+          <span class="unit-label">SEGUNDOS</span>
+        </div>
+      </div>
+
+      <p class="status" id="status" aria-live="polite">
+        Cada minuto conta. O tempo de viver importa!
+      </p>
+    </section>
+  </header>
+
+  <main>
+    <section class="content">
+      <h2>O trabalhador merece viver!</h2>
+
+      <div class="manifesto">
+        <p>
+          A vida não pode ser resumida a bater ponto, trabalhar,
+          dormir e começar tudo de novo.
+        </p>
+
+        <p>
+          Defendemos uma realidade em que as pessoas tenham
+          <strong>tempo para a família, para a saúde, para o lazer
+          e para os próprios sonhos.</strong>
+        </p>
+
+        <p>
+          O fim da escala 6x1 representa uma mudança importante.
+          Acompanhar sua aplicação e informar os trabalhadores
+          também faz parte dessa conquista.
+        </p>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <strong>Mais descanso</strong>
+          Tempo para recuperar as energias e cuidar da saúde.
+        </div>
+
+        <div class="pillar">
+          <strong>Mais família</strong>
+          Mais momentos com quem faz a vida valer a pena.
+        </div>
+
+        <div class="pillar">
+          <strong>Mais dignidade</strong>
+          Respeito a quem move o país com seu trabalho.
+        </div>
+
+        <div class="pillar">
+          <strong>Mais qualidade de vida</strong>
+          Uma vida que também tenha espaço para existir fora do trabalho.
+        </div>
+      </div>
+
+      <p>
+        <strong>Compartilhe essa ideia.</strong>
+        Uma sociedade melhor começa quando o tempo de viver
+        também é tratado como prioridade.
+      </p>
+
+      <p class="legal-note">
+        A contagem considera a data geral de referência para a
+        transição da jornada. Existem regras específicas e exceções
+        legais. Consulte a legislação e as orientações oficiais
+        aplicáveis à sua categoria.
+      </p>
+
+      <p>
+        <a href="https://www12.senado.leg.br/noticias"
+           target="_blank" rel="noopener noreferrer">
+          Acompanhe informações oficiais do Senado
+        </a>
+      </p>
+    </section>
+
+    <section class="share-section">
+      <h2>Essa ideia precisa circular!</h2>
+
+      <p>
+        Compartilhe com seus amigos, familiares e colegas de trabalho.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-red"
+           id="whatsapp"
+           href="https://wa.me/?text=Mais%20vida%2C%20menos%20trabalho!%20O%20tempo%20de%20viver%20importa."
+           target="_blank"
+           rel="noopener noreferrer">
+          Compartilhar no WhatsApp
+        </a>
+
+        <button class="btn btn-white" id="share-button" type="button">
+          Compartilhar site
+        </button>
+
+        <button class="btn btn-white" id="copy-button" type="button">
+          Copiar mensagem
+        </button>
+      </div>
+
+      <p id="share-status" role="status" aria-live="polite"></p>
+
+      <div class="social">
+        <a href="https://x.com/rafael_roberto"
+           target="_blank" rel="noopener noreferrer">
+          X — @rafael_roberto
+        </a>
+
+        <a href="https://www.instagram.com/rafaelsroberto/"
+           target="_blank" rel="noopener noreferrer">
+          Instagram — @rafaelsroberto
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Mais vida, menos trabalho.</strong></p>
+    <p>Uma iniciativa de Rafael Roberto.</p>
+    <p>Informação, conscientização e mobilização popular.</p>
+  </footer>
+
+  <script>
+    // CONFIGURAÇÃO DO CONTADOR
+    // Data e hora no fuso de Brasília (UTC-03:00).
+    // Altere quando uma nova data oficial for confirmada.
+    const DATA_ALVO = "2026-12-15T00:00:00-03:00";
+
+    const alvo = new Date(DATA_ALVO).getTime();
+
+    const campos = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds")
+    };
+
+    const status = document.getElementById("status");
+    const titulo = document.getElementById("timer-heading");
+
+    function atualizarContagem() {
+      const agora = Date.now();
+      const restante = alvo - agora;
+
+      if (restante <= 0) {
+        Object.values(campos).forEach(campo => {
+          campo.textContent = "00";
+        });
+
+        titulo.textContent = "A DATA DE REFERÊNCIA CHEGOU!";
+        status.textContent =
+          "Consulte as regras em vigor e acompanhe sua aplicação. " +
+          "A data não garante aplicação idêntica a todas as categorias.";
+
+        return;
+      }
+
+      const dias = Math.floor(restante / 86400000);
+      const horas = Math.floor((restante % 86400000) / 3600000);
+      const minutos = Math.floor((restante % 3600000) / 60000);
+      const segundos = Math.floor((restante % 60000) / 1000);
+
+      campos.days.textContent = String(dias).padStart(2, "0");
+      campos.hours.textContent = String(horas).padStart(2, "0");
+      campos.minutes.textContent = String(minutos).padStart(2, "0");
+      campos.seconds.textContent = String(segundos).padStart(2, "0");
+    }
+
+    atualizarContagem();
+    setInterval(atualizarContagem, 1000);
+
+    // COMPARTILHAMENTO
+    function obterMensagem() {
+      const url = window.location.href;
+
+      return {
+        title: "Mais vida, menos trabalho",
+        text: "O tempo de viver importa! " +
+          "Acesse Mais vida, menos trabalho e compartilhe essa ideia.",
+        url: url
+      };
+    }
+
+    document.getElementById("whatsapp").addEventListener("click", () => {
+      const dados = obterMensagem();
+
+      const mensagem = dados.text + " " + dados.url;
+      const link = "https://wa.me/?text=" + encodeURIComponent(mensagem);
+
+      document.getElementById("whatsapp").href = link;
+    });
+
+    document.getElementById("share-button").addEventListener(
+      "click", async () => {
+        const dados = obterMensagem();
+        const aviso = document.getElementById("share-status");
+
+        try {
+          if (navigator.share) {
+            await navigator.share(dados);
+          } else if (navigator.clipboard) {
+            await navigator.clipboard.writeText(
+              dados.text + " " + dados.url
+            );
+            aviso.textContent = "Mensagem e endereço copiados!";
+          } else {
+            aviso.textContent =
+              "Use a opção Copiar mensagem ou copie o endereço do navegador.";
+          }
+        } catch (erro) {
+          if (erro.name !== "AbortError") {
+            aviso.textContent =
+              "Não foi possível compartilhar. Copie o endereço do site.";
+          }
+        }
+      }
+    );
+
+    document.getElementById("copy-button").addEventListener(
+      "click", async () => {
+        const aviso = document.getElementById("share-status");
+        const dados = obterMensagem();
+
+        try {
+          await navigator.clipboard.writeText(
+            dados.text + " " + dados.url
+          );
+          aviso.textContent = "Mensagem copiada para compartilhar!";
+        } catch (erro) {
+          aviso.textContent =
+            "Não foi possível copiar automaticamente. " +
+            "Copie o endereço do site pelo navegador.";
+        }
+      }
+    );
+  </script>
+</body>
+</html>
